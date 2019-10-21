@@ -1,5 +1,45 @@
-.recordItem {
-  height: 100px;
-  background-color: grey;
-  margin: 10px;
+.tcontainer {
+  background-color: whitesmoke;
+}
+
+.record-item {
+  padding: 30rpx 30rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eee;
+}
+
+.title {
+  left: 0;
+  height: 50rpx;
+}
+
+.title text {
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  margin-right: 15rpx;
+  color: #a0acac;
+  font-size: 35rpx;
+}
+
+.content {
+  height: 150rpx;
+}
+
+.tail {
+  left: 0;
+  height: 50rpx;
+}
+
+.tail text {
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  color: #a0acac;
+  font-size: 35rpx;
 }

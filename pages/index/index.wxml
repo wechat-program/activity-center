@@ -1,3 +1,13 @@
-<view class="tui-content">
- <view class="recordItem" wx:for="{{activityRecords}}">Item -- {{item.name}}</view>
-</view>
+<block>
+  <view wx:for="{{activityRecords}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="record-item" style="flex-direction:column;">
+      <view class="title">
+        <text>这里是标题</text>
+      </view>
+      <view class="content">这里是内容部分</view>
+      <view class="tail">
+        <text>点赞，评论相关信息</text>
+      </view>
+    </view>
+  </view>
+</block>
