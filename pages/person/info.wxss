@@ -1,5 +1,0 @@
-/* pages/mine/info.wxss */
-
-.recordItem {
-  height: 100px;
-}
