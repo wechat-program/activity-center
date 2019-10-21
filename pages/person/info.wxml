@@ -1,1 +1,3 @@
-My Information
+<view class="tui-content">
+ <view class="recordItem" wx:for="{{activityRecords}}">Item -- {{item.name}}</view>
+</view>
