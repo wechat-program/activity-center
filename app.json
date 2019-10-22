@@ -18,14 +18,14 @@
       {
         "pagePath": "pages/index/index",
         "text": "活 动",
-        "iconPath": "pages/index/images/activity.png",
-        "selectedIconPath": "pages/index/images/activity_selected.png"
+        "iconPath": "pages/images/activity.png",
+        "selectedIconPath": "pages/images/activity_selected.png"
       },
       {
         "pagePath": "pages/person/info",
         "text": "我 的",
-        "iconPath": "pages/index/images/person.png",
-        "selectedIconPath": "pages/index/images/person_selected.png"
+        "iconPath": "pages/images/person.png",
+        "selectedIconPath": "pages/images/person_selected.png"
       }
     ]
   }

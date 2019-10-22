@@ -1,32 +1,5 @@
-const data = [{
-  "title": "Lsp Designer",
-  "content": "🎨 A practical component library from Logistics Service Management Product Group feels silky and smooth when used.",
-  "thumUpNumber": 3,
-  "commentNumber": 1
-}, {
-  "title": "Biscuits",
-  "content": "🍪 Little Spring Rapid Development Framework",
-  "thumUpNumber": 1,
-  "commentNumber": 1
-}, {
-  "title": "Pocket",
-  "content": "⛱ Pocket's core Object/Relational Mapping functionality",
-  "thumUpNumber": 0,
-  "commentNumber": 0
-}, {
-  "title": "Qrcode Scanneraa",
-  "content": "🛠 Flutter QR code scanner plugin.",
-  "thumUpNumber": 97,
-  "commentNumber": 12
-}, {
-  "title": "Pda Scanner",
-  "content": "🚀A Flutter plugin to scanning. Ready for PDA",
-  "thumUpNumber": 4,
-  "commentNumber": 2
-}];
-
+var util = require('../../utils/util.js');
 Page({
-
   data: {
     activityRecords: [],
     page: 1,
@@ -56,7 +29,7 @@ Page({
       });
       setTimeout(function() {
         that.setData({
-          activityRecords: data,
+          activityRecords: util.getNews(),
           page: 1,
           loading: false
         });
@@ -82,20 +55,22 @@ Page({
   },
 
   loadMore: function() {
-    var that = this;
+    var that = this,
+      news = [];
     if (!that.data.loading) {
       wx.showLoading({
         title: '玩命加载中',
       });
       setTimeout(function() {
-        if (data.length === 0) {
+        news = util.getNews();
+        if (news.length === 0) {
           that.setData({
             noMore: true,
             loading: false
           });
         } else {
           that.setData({
-            activityRecords: that.data.activityRecords.concat(data),
+            activityRecords: that.data.activityRecords.concat(news),
             page: that.data.page + 1,
             loading: false
           });

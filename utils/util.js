@@ -14,6 +14,13 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+var news = require('../data/data_new.js');
+
+function getNews() {
+  return news.news;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getNews: getNews
 }
