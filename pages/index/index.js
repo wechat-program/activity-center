@@ -94,5 +94,11 @@ Page({
     //       console.log(that.data.activityRecords);
     //     }
     //   });
+  },
+
+  bindDetail: function(e) {
+    wx.navigateTo({
+      url: '/pages/detail/detail?uuid=' + e.currentTarget.dataset.uuid
+    })
   }
 })

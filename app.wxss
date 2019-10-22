@@ -13,3 +13,12 @@
 .dot ::after {
   content: "•";
 }
+
+.flex-wrp {
+  display: flex;
+}
+
+.flex-item {
+  flex-grow: 1;
+  text-align: center;
+}

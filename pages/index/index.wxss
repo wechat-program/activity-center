@@ -28,6 +28,7 @@
   border-radius: 45rpx;
   top: 10rpx;
   vertical-align: middle;
+  background-color: rgba(221, 221, 221, 0.253);
 }
 
 .title text {

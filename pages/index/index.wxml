@@ -7,7 +7,7 @@
         </view>
         <text>{{item.title}}</text>
       </view>
-      <view class="content">{{item.content}}</view>
+      <view class="content" data-uuid="{{item.uuid}}" bindtap="bindDetail">{{item.content}}</view>
       <view class="tail">
         <view class="like dot">
           <a>{{item.thumUpNumber}} Thum up </a>

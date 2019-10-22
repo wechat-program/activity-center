@@ -2,18 +2,20 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/person/info"
+    "pages/person/info",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#dddddd",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 100
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor": "#ec5d27",
+    "color": "#aaaaaa",
+    "selectedColor": "#5f5f5f",
     "list": [
       {
         "pagePath": "pages/index/index",

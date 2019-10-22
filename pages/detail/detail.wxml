@@ -1,0 +1,16 @@
+<view style="flex-direction:column;">
+  <view class="title flex-wrp">
+    <view class="avatar flex-item">
+      <image src="../images/activity_selected.png"></image>
+    </view>
+    <view class="title-info flex-item">
+      <text class="organizer-name">Rebecca</text>
+      <text class="title-des">{{detail.title}}</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <text>{{detail.content}}</text>
+    <image src="../images/activity_selected.png"></image>
+  </view>
+</view>

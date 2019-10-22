@@ -20,7 +20,14 @@ function getNews() {
   return news.news;
 }
 
+function getDetailByUuid(uuid) {
+  return news.news.filter((item) => {
+    return item.uuid === uuid;
+  })[0];
+}
+
 module.exports = {
   formatTime: formatTime,
-  getNews: getNews
+  getNews: getNews,
+  getDetailByUuid: getDetailByUuid,
 }
