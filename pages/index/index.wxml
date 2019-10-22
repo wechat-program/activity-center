@@ -1,13 +1,18 @@
-<block>
-  <view wx:for="{{activityRecords}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+<scroll-view scroll-y="true">
+  <block wx:for="{{activityRecords}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
     <view class="record-item" style="flex-direction:column;">
       <view class="title">
-        <text>这里是标题</text>
+        <text>{{item.title}}</text>
       </view>
-      <view class="content">这里是内容部分</view>
+      <view class="content">{{item.content}}</view>
       <view class="tail">
-        <text>点赞，评论相关信息</text>
+        <text>Thum up {{item.thumUpNumber}}, Comment taking {{item.commentNumber}}</text>
       </view>
     </view>
-  </view>
-</block>
+  </block>
+</scroll-view>
+<view style="text-align: center;margin: 10px;">
+  <view wx:if="{{loading}}">加载中...</view>
+  <view wx:if="{{noMore}}">没有更多了</view>
+  <view wx:if="{{loadingFailed}}">数据加载失败,请重试</view>
+</view>

@@ -1,30 +1,38 @@
 const data = [{
-  "name": "第一条"
+  "title": "Lsp Designer",
+  "content": "🎨 A practical component library from Logistics Service Management Product Group feels silky and smooth when used.",
+  "thumUpNumber": 3,
+  "commentNumber": 1
 }, {
-  "name": "第二条"
+  "title": "Biscuits",
+  "content": "🍪 Little Spring Rapid Development Framework",
+  "thumUpNumber": 1,
+  "commentNumber": 1
 }, {
-  "name": "第三条"
+  "title": "Pocket",
+  "content": "⛱ Pocket's core Object/Relational Mapping functionality",
+  "thumUpNumber": 0,
+  "commentNumber": 0
 }, {
-  "name": "第四条"
+  "title": "Qrcode Scanneraa",
+  "content": "🛠 Flutter QR code scanner plugin.",
+  "thumUpNumber": 97,
+  "commentNumber": 12
 }, {
-  "name": "第五条"
-}, {
-  "name": "第六条"
-}, {
-  "name": "第七条"
-}, {
-  "name": "第八条"
-}, {
-  "name": "第九条"
-}, {
-  "name": "第十条"
+  "title": "Pda Scanner",
+  "content": "🚀A Flutter plugin to scanning. Ready for PDA",
+  "thumUpNumber": 4,
+  "commentNumber": 2
 }];
 
 Page({
 
   data: {
     activityRecords: [],
-    page: 1
+    page: 1,
+    loading: false,
+    noMore: false,
+    loadingFailed: false
   },
 
   onLoad: function(options) {
@@ -40,13 +48,23 @@ Page({
   },
 
   refresh: function() {
-    this.setData({
-      activityRecords: data,
-      page: 1
-    });
+    var that = this;
+    if (!that.data.loading) {
+      wx.showNavigationBarLoading();
+      that.setData({
+        loading: true
+      });
+      setTimeout(function() {
+        that.setData({
+          activityRecords: data,
+          page: 1,
+          loading: false
+        });
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      }, 100);
+    }
 
-    // wx.showNavigationBarLoading();
-    // var that = this;
     // wx.request({
     //   url: 'https://www.wetest.com/home/list_record?page=1',
     //   method: "GET",
@@ -59,21 +77,33 @@ Page({
     //       page: 1
     //     });
     //     console.log(that.data.activityRecords);
-    //     wx.hideNavigationBarLoading();
-    //     wx.stopPullDownRefresh();
     //   }
     // });
   },
 
   loadMore: function() {
-    this.setData({
-      activityRecords: this.data.activityRecords.concat(data),
-      page: this.data.page + 1
-    });
-    //   var that = this;
-    //   wx.showLoading({
-    //     title: '玩命加载中',
-    //   });
+    var that = this;
+    if (!that.data.loading) {
+      wx.showLoading({
+        title: '玩命加载中',
+      });
+      setTimeout(function() {
+        if (data.length === 0) {
+          that.setData({
+            noMore: true,
+            loading: false
+          });
+        } else {
+          that.setData({
+            activityRecords: that.data.activityRecords.concat(data),
+            page: that.data.page + 1,
+            loading: false
+          });
+        }
+        wx.hideLoading();
+      }, 300);
+    }
+
     //   wx.request({
     //     url: 'https://www.wetest.com/home/list_record?page=' + this.data.page + 1,
     //     method: "GET",
@@ -87,7 +117,6 @@ Page({
     //         page: that.data.page + 1
     //       })
     //       console.log(that.data.activityRecords);
-    //       wx.hideLoading();
     //     }
     //   });
   }
