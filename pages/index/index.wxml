@@ -1,12 +1,13 @@
 <scroll-view scroll-y="true">
   <block wx:for="{{activityRecords}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="{{idx}}">
     <view class="record-item" style="flex-direction:column;">
-      <view class="title">
+      <view class="organizer-info">
         <view class="avatar">
           <image src="../images/activity_selected.png"></image>
         </view>
-        <text>{{item.title}}</text>
+        <text>organizer name</text>
       </view>
+      <view class="title" data-uuid="{{item.uuid}}" bindtap="bindDetail">{{item.title}}</view>
       <view class="content" data-uuid="{{item.uuid}}" bindtap="bindDetail">{{item.content}}</view>
       <view class="tail">
         <view class="like dot">

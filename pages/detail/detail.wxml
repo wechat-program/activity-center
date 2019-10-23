@@ -11,6 +11,28 @@
 
   <view class="content">
     <text>{{detail.content}}</text>
-    <image src="../images/activity_selected.png"></image>
+    <view class="image-wrp">
+      <block wx:for="{{detail.images}}" wx:key="{{index}}"  data-index="{{index}}" src="{{item}}">
+        <image src="{{item}}"></image>
+    </block>
+    </view>
   </view>
+  
+  <view class="detail-footer flex-wrp">
+      <view class="operation flex-item flex-wrp">
+        <view class="operation-btn flex-item">
+          <image src="../images/like.png"></image>
+          <text>Like</text>
+        </view>
+        <view class="operation-btn flex-item">
+          <image src="../images/join.png"></image>
+          <text>Join</text>
+        </view>
+        <view class="operation-btn flex-item">
+          <image src="../images/comment.png"></image>
+          <text>Comment</text>
+        </view>
+    </view>
+  </view>
+
 </view>
