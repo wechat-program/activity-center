@@ -1,0 +1,6 @@
+welcome
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__container">
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="auth-button">授\t\t权</button>
+  </view>
+</view>
