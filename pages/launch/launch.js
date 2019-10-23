@@ -2,10 +2,36 @@ const app = getApp();
 Page({
 
   data: {
-    showDialog: false
+    showDialog: false,
+    banners: ['', '', ''],
+    swiperMaxNumber: 3,
+    swiperCurrent: 0
   },
 
   onLoad: function(options) {
+
+  },
+
+  onGotUserInfo: function(e) {
+    var that = this;
+    that.setData({
+      showDialog: false
+    });
+    if (e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      wx.reLaunch({
+        url: '/pages/index/index',
+      });
+    }
+  },
+
+  swiperchange: function(e) {
+    this.setData({
+      swiperCurrent: e.detail.current
+    })
+  },
+
+  goToIndex: function() {
     var that = this;
     wx.getSetting({
       success: res => {
@@ -39,18 +65,9 @@ Page({
     })
   },
 
-  onGotUserInfo: function(e) {
-    if (e.detail.userInfo) {
-      console.log('授权通过')
-      app.globalData.userInfo = e.detail.userInfo
-      wx.reLaunch({
-        url: '/pages/index/index',
-      })
-    } else {
-      console.log('拒绝授权')
-      wx.showModal({
-        title: '真香警告！'
-      })
-    }
+  toggleDialog() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
   }
 })
