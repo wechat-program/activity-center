@@ -4,7 +4,7 @@
       <image src="../images/activity_selected.png"></image>
     </view>
     <view class="title-info flex-item">
-      <text class="organizer-name">Rebecca</text>
+      <text class="organizer-name">{{detail.organizer}}</text>
       <text class="title-des">{{detail.title}}</text>
     </view>
   </view>
